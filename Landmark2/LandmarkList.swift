@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    
     @State var isTogggle = false
     
     var filteredLandmarks: [Landmark]
@@ -21,9 +22,9 @@ struct LandmarkList: View {
             {
                 return true
             }
-            
         }
     }
+    
     var body: some View {
         NavigationView{
             List{
@@ -40,15 +41,9 @@ struct LandmarkList: View {
                         LandmarkRow(landmark: landmark)
                     }
                 }
-                
-                
-                
-                
             }
             .navigationTitle("Landmarks")
-            
         }
-        
     }
 }
 

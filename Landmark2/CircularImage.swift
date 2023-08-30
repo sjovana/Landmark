@@ -20,7 +20,6 @@ struct CircularImage: View {
                     .stroke(.gray,lineWidth: 3)
             }
             .shadow(radius: 7)
-        
     }
 }
 

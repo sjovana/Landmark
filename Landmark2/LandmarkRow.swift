@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LandmarkRow: View {
+    
     let landmark: Landmark
     
     var body: some View {

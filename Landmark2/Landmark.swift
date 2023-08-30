@@ -21,18 +21,9 @@ struct Landmark: Identifiable, Decodable
     private var coordinates: Coordinates
     private var category: String
     
-    var categoryEnum: Categories
-    {
-        Categories(rawValue: category)!
-    }
     
     var image: Image{
         Image(imageName)
-    }
-    enum Categories: String, CaseIterable {
-        case lakes = "Lakes"
-        case rivers = "Rivers"
-        case mountains = "Mountains"
     }
     
     var locationCoordinate: CLLocationCoordinate2D

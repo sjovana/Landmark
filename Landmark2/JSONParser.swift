@@ -9,29 +9,24 @@ import Foundation
 
 let landmarks: [Landmark] = load("landmarkData")
 
-func categorizedLandmarks() -> [String: [Landmark]]
+func load <T: Decodable> (_ filename: String) -> T
 {
-    Dictionary(grouping: landmarks) { $0.categoryEnum.rawValue}}
-
-    
-    func load <T: Decodable> (_ filename: String) -> T
-    {
-        let data: Data
+    let data: Data
         
-        guard let file = Bundle.main.url(forResource: filename, withExtension: "json") else
-        {
-            fatalError()
-        }
-        do{
-            data=try Data(contentsOf: file)
-        }catch{
-            fatalError()
-        }
-        do{
-            let decoder = JSONDecoder()
-            return try decoder.decode(T.self, from: data)
-        }catch{
-            fatalError()
-        }
+    guard let file = Bundle.main.url(forResource: filename, withExtension: "json") else
+    {
+        fatalError()
     }
+    do{
+        data=try Data(contentsOf: file)
+    }catch{
+        fatalError()
+    }
+    do{
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: data)
+    }catch{
+        fatalError()
+    }
+}
 
